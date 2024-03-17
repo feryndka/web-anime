@@ -8,9 +8,13 @@ const InputSearch = () => {
   const router = useRouter();
 
   const handleSearch = (event) => {
-    if (event.key === "Enter" || event.type === "click") {
+    // event.key saat keyboard menekan enter
+    // event.type saat button onclick
+
+    const keyword = searchRef.current.value;
+
+    if ((event.key === "Enter" || event.type === "click") && keyword.length !== 0) {
       event.preventDefault();
-      const keyword = searchRef.current.value;
       router.push(`/search/${keyword}`);
     }
   };
@@ -23,6 +27,7 @@ const InputSearch = () => {
         className="w-full p-1 rounded hover:shadow-lg"
         ref={searchRef}
         onKeyDown={handleSearch}
+        // untuk keyboard menekan enter
       />
       <button className="absolute top-1.5 end-2" onClick={handleSearch}>
         <IoSearch size={20} />

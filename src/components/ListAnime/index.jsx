@@ -8,7 +8,7 @@ const ListAnime = ({ api }) => {
       {api?.data?.map((item) => (
         <Link
           href={`/${item.mal_id}`}
-          className="cursor-pointer text-color-primary hover:text-color-accent transition-all bg-color-secondary shadow-md shadow-color-primary"
+          className="cursor-pointer text-color-primary hover:text-color-accent transition-all bg-color-secondary shadow-md hover:shadow-color-accent"
           key={item.mal_id}
         >
           <Image

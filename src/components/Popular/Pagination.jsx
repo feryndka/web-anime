@@ -27,7 +27,7 @@ const Pagination = ({ page, setPage, lastPage }) => {
         className="hover:bg-color-accent hover:text-color-secondary transition-all border rounded-lg px-3 py-1"
         onClick={handlePrevPage}
       >
-        Prev
+        {"<"}
       </button>
       <p>
         {page} of {lastPage}
@@ -36,7 +36,7 @@ const Pagination = ({ page, setPage, lastPage }) => {
         className="hover:bg-color-accent hover:text-color-secondary transition-all border rounded-lg px-3 py-1"
         onClick={handleNextPage}
       >
-        Next
+        {">"}
       </button>
     </div>
   );

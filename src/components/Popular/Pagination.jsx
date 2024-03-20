@@ -6,38 +6,65 @@ const Pagination = ({ page, setPage, lastPage }) => {
   };
 
   const handlePrevPage = () => {
-    let first = page - 1;
-    if (first !== 0) {
-      setPage((page) => page - 1);
-      scrollTop();
-    }
+    setPage((page) => page - 1);
+    scrollTop();
   };
 
   const handleNextPage = () => {
-    let last = page + 1;
-    if (last <= lastPage) {
-      setPage((page) => page + 1);
-      scrollTop();
-    }
+    setPage((page) => page + 1);
+    scrollTop();
+  };
+
+  const handleFirstPage = () => {
+    setPage(1);
+    scrollTop();
+  };
+
+  const handleLastPage = () => {
+    setPage(lastPage);
+    scrollTop();
   };
 
   return (
     <div className="text-color-primary flex items-center justify-center p-10 gap-5 text-xl">
-      <button
-        className="hover:bg-color-accent hover:text-color-secondary transition-all border rounded-lg px-3 py-1"
-        onClick={handlePrevPage}
-      >
-        {"<"}
-      </button>
-      <p>
-        {page} of {lastPage}
-      </p>
-      <button
-        className="hover:bg-color-accent hover:text-color-secondary transition-all border rounded-lg px-3 py-1"
-        onClick={handleNextPage}
-      >
-        {">"}
-      </button>
+      {page > 1 ? (
+        <button
+          className="hover:bg-color-accent hover:text-color-secondary transition-all border rounded-lg px-3 py-1"
+          onClick={handlePrevPage}
+        >
+          {"<"}
+        </button>
+      ) : null}
+
+      <div className="flex gap-3">
+        {page === 1 ? null : (
+          <button
+            className="hover:text-color-accent transition-all"
+            onClick={handleFirstPage}
+          >
+            first page...
+          </button>
+        )}
+        <p>
+          {page} of {lastPage}
+        </p>
+        {page === lastPage ? null : (
+          <button
+            className="hover:text-color-accent transition-all"
+            onClick={handleLastPage}
+          >
+            ...last page
+          </button>
+        )}
+      </div>
+      {page >= lastPage ? null : (
+        <button
+          className="hover:bg-color-accent hover:text-color-secondary transition-all border rounded-lg px-3 py-1"
+          onClick={handleNextPage}
+        >
+          {">"}
+        </button>
+      )}
     </div>
   );
 };

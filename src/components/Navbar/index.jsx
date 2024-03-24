@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import InputSearch from "./InputSearch";
+import UserSignin from "./UserAction";
 
 const Navbar = () => {
   return (
@@ -10,6 +11,7 @@ const Navbar = () => {
           ANIME INDONESIA 🚀
         </Link>
         <InputSearch />
+        <UserSignin />
       </div>
     </header>
   );

@@ -26,10 +26,9 @@ const InputSearch = () => {
       <input
         type="text"
         placeholder="Search anime"
-        className="w-full p-1 rounded hover:shadow-lg"
+        className="w-full px-3 py-1 rounded shadow-lg md:w-[40vw]"
         ref={searchRef}
-        onKeyDown={handleSearch}
-        // untuk keyboard menekan enter
+        onKeyDown={handleSearch} // untuk keyboard menekan enter
       />
       <button className="absolute top-1.5 end-2" onClick={handleSearch}>
         <IoSearch size={20} />

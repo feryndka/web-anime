@@ -1,29 +1,33 @@
-"use client"
+"use client";
 
 import ListAnime from "@/components/ListAnime";
 import Header from "@/components/Popular/Header";
 import Pagination from "@/components/Popular/Pagination";
 import React, { useEffect, useState } from "react";
-import { GetAnime } from "../api/api-libs";
+import { GetAnime } from "../../libs/api-libs";
 
 const Popular = () => {
-  const [page, setPage] = useState(1)
-  const [anime, setAnime] = useState([])
+  const [page, setPage] = useState(1);
+  const [anime, setAnime] = useState([]);
 
-  const fetchData = async() => {
-    const data = await GetAnime("top/anime", `page=${page}`)
-    setAnime(data)
-  }
+  const fetchData = async () => {
+    const data = await GetAnime("top/anime", `page=${page}`);
+    setAnime(data);
+  };
 
   useEffect(() => {
-    fetchData()
-  }, [page])
+    fetchData();
+  }, [page]);
 
   return (
     <>
-      <Header title={`ANIME TERPOPULAR #${page}`} /> 
+      <Header title={`ANIME TERPOPULAR #${page}`} />
       <ListAnime api={anime} />
-      <Pagination page={page} setPage={setPage} lastPage={anime?.pagination?.last_visible_page} />
+      <Pagination
+        page={page}
+        setPage={setPage}
+        lastPage={anime?.pagination?.last_visible_page}
+      />
     </>
   );
 };

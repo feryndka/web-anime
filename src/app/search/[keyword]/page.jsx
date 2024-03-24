@@ -1,4 +1,4 @@
-import { GetAnime } from "@/app/api/api-libs";
+import { GetAnime } from "@/libs/api-libs";
 import ListAnime from "@/components/ListAnime";
 import Header from "@/components/ListAnime/Header";
 import React from "react";

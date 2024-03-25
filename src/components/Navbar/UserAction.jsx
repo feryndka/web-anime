@@ -11,14 +11,16 @@ const UserAction = async () => {
   const BadgeUser = () => {
     return (
       <div className="flex items-center justify-center gap-2 px-2 py-px rounded-lg">
-        <p className="text-lg font-semibold">{user.name}</p>
-        <Image
-          src={user.image}
-          alt="profile"
-          height={250}
-          width={250}
-          className="rounded-full w-8 h-8"
-        />
+        <button className="hover:bg-color-primary rounded-full w-11 h-11 flex items-center justify-center transition-all">
+          <Image
+            src={user.image}
+            alt="profile"
+            height={250}
+            width={250}
+            className="rounded-full w-9 h-9"
+          />
+        </button>
+        <Link href="/users/dashboard">Dashboard</Link>
       </div>
     );
   };

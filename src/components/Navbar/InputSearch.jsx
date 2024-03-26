@@ -25,12 +25,12 @@ const InputSearch = () => {
     <div className="relative">
       <input
         type="text"
-        placeholder="Search anime"
-        className="w-full px-3 py-1 rounded shadow-lg md:w-[40vw]"
+        placeholder="Search anime..."
+        className="w-full px-3 py-2 rounded hover:shadow-lg"
         ref={searchRef}
         onKeyDown={handleSearch} // untuk keyboard menekan enter
       />
-      <button className="absolute top-1.5 end-2" onClick={handleSearch}>
+      <button className="absolute top-2 end-2" onClick={handleSearch}>
         <IoSearch size={20} />
       </button>
     </div>

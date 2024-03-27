@@ -1,11 +1,14 @@
 "use client";
 
 import YouTube from "react-youtube";
-import { MdKeyboardDoubleArrowDown, MdKeyboardDoubleArrowUp } from "react-icons/md";
+import {
+  MdKeyboardDoubleArrowDown,
+  MdKeyboardDoubleArrowUp,
+} from "react-icons/md";
 import { useState } from "react";
 
 const Video = ({ videoId }) => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleVideo = () => {
     setIsOpen(!isOpen);
@@ -38,16 +41,17 @@ const Video = ({ videoId }) => {
     return (
       <div className="fixed bottom-2 right-2">
         <button
-          className="float-right bg-color-primary text-color-dark rounded"
+          className="float-right bg-color-primary text-color-dark rounded px-3 flex items-center gap-2"
           onClick={handleVideo}
         >
-          <MdKeyboardDoubleArrowUp size={25} />
+          Trailer
+          <MdKeyboardDoubleArrowUp />
         </button>
       </div>
     );
   };
 
-  return isOpen ? <OpenVideo/> : <CloseVideo />;
+  return isOpen ? <OpenVideo /> : <CloseVideo />;
 };
 
 export default Video;

@@ -2,42 +2,15 @@ import { GetAnime } from "@/libs/api-libs";
 import Video from "@/components/Video";
 import Image from "next/image";
 import React from "react";
+import BodyCard from "@/components/ListAnime/BodyCard";
+import { authUserSession } from "@/libs/user.libs";
+import InputComment from "@/components/ListAnime/InputComment";
+import BoxComment from "@/components/ListAnime/BoxComment";
 
 const Page = async ({ params }) => {
   const { id } = params;
   const anime = await GetAnime(`anime/${id}`);
-
-  const BodyCard = () => {
-    return (
-      <div className="flex flex-col gap-1">
-        {anime.data.broadcast.timezone ? (
-          <div className="flex">
-            <p className="w-32">Country</p>
-            <p>{anime.data.broadcast.timezone}</p>
-          </div>
-        ) : null}
-        <div className="flex">
-          <p className="w-32">Duration</p>
-          <p>{anime.data.duration}</p>
-        </div>
-        <div className="flex">
-          <p className="w-32">Score</p>
-          <p>
-            {anime.data.score} / 10 from {anime.data.scored_by} users
-          </p>
-        </div>
-        <div className="flex mt-4">
-          <div className="w-10 bg-color-secondary"></div>
-          <div className="px-4">
-            <h2 className="text-2xl text-color-accent font-bold pb-2">
-              Synopsis
-            </h2>
-            <p className="text-sm">{anime.data.synopsis}</p>
-          </div>
-        </div>
-      </div>
-    );
-  };
+  const user = await authUserSession();
 
   return (
     <>
@@ -49,14 +22,32 @@ const Page = async ({ params }) => {
           <Image
             src={anime.data.images.webp.image_url}
             alt={anime.data.images.jpg.image_url}
-            height={150}
-            width={150}
+            height={250}
+            width={250}
             className="object-cover w-full rounded"
           />
-          <BodyCard />
+          <BodyCard
+            anime={anime}
+            mal_id={id}
+            user_email={user?.email}
+            image={anime.data.images.webp.image_url}
+            title={anime.data.title}
+          />
         </div>
         <div>
           <Video videoId={anime.data.trailer.youtube_id} />
+        </div>
+        <div className="px-4 py-2">
+          {user && (
+            <InputComment
+              mal_id={id}
+              user_email={user?.email}
+              user_name={user?.name}
+              title={anime.data.title}
+            />
+          )}
+          <h1 className="text-lg mt-5">Comment</h1>
+          <BoxComment mal_id={id} />
         </div>
       </div>
     </>

@@ -13,9 +13,9 @@ const Header = ({title}) => {
 
   return (
     <div className="text-color-primary flex items-center py-4">
-      <button className="text-lg" onClick={handleBack}>Dashboard</button>
+      <button className="text-lg hover:text-color-accent" onClick={handleBack}>Dashboard</button>
       <RxSlash size={24} />
-      <h1 className="text-lg cursor-pointer">{title}</h1>
+      <h1 className="text-lg cursor-default">{title}</h1>
     </div>
   );
 };

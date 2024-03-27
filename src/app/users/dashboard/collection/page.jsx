@@ -12,7 +12,7 @@ const Collection = async () => {
   });
 
   return (
-    <section className="w-full px-5">
+    <section className="w-full px-10">
       <Header title={"Collection"} />
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {collection.map((item, index) => {

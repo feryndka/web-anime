@@ -1,5 +1,5 @@
 export const GetAnime = async (resource, query) => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/${resource}?${query}`)
+  const res = await fetch(`https://api.jikan.moe/v4/${resource}?${query}`)
   const data = res.json()
   return data
 }

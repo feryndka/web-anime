@@ -11,12 +11,11 @@ const Navbar = () => {
           <Link href={"/"} className="font-bold text-xl">
             ANIME INDONESIA 🚀
           </Link>
-          
         </div>
-        
+
         <div className="md:flex items-center gap-4">
           <InputSearch />
-          <UserSignin />
+          {/* <UserSignin /> */}
         </div>
       </div>
     </header>

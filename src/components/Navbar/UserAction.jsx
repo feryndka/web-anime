@@ -6,7 +6,7 @@ const UserAction = async () => {
   const user = await authUserSession();
 
   return (
-    <div className="">
+    <div>
       {user ? (
         <BadgeUser user={user} />
       ) : (

@@ -4,8 +4,8 @@ import Image from "next/image";
 import React from "react";
 import BodyCard from "@/components/ListAnime/BodyCard";
 import { authUserSession } from "@/libs/user.libs";
-import InputComment from "@/components/ListAnime/InputComment";
-import BoxComment from "@/components/ListAnime/BoxComment";
+// import InputComment from "@/components/ListAnime/InputComment";
+// import BoxComment from "@/components/ListAnime/BoxComment";
 
 const Page = async ({ params }) => {
   const { id } = params;
@@ -37,7 +37,7 @@ const Page = async ({ params }) => {
         <div>
           <Video videoId={anime.data.trailer.youtube_id} />
         </div>
-        <div className="px-4 py-2">
+        {/* <div className="px-4 py-2">
           {user && (
             <InputComment
               mal_id={id}
@@ -48,7 +48,7 @@ const Page = async ({ params }) => {
           )}
           <h1 className="text-lg mt-5">Comment</h1>
           <BoxComment mal_id={id} />
-        </div>
+        </div> */}
       </div>
     </>
   );

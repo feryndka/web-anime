@@ -3,7 +3,7 @@ import Header from "@/components/ListAnime/Header";
 import { GetAnime, GetNestedAnime, reproduce } from "../libs/api-libs";
 
 export default async function Home() {
-  const topAnime = await GetAnime("top/anime", "limit=10");
+  const topAnime = await GetAnime("top/anime", "limit=15");
   let recommenAnime = await GetNestedAnime("recommendations/anime", "entry");
   recommenAnime = reproduce(recommenAnime, 5);
 

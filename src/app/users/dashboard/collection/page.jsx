@@ -1,5 +1,5 @@
 import Header from "@/components/Dashboard/Header";
-import prisma from "@/libs/prisma";
+// import prisma from "@/libs/prisma";
 import { authUserSession } from "@/libs/user.libs";
 import Link from "next/link";
 import Image from "next/image";
@@ -7,15 +7,15 @@ import Image from "next/image";
 const Collection = async () => {
   const user = await authUserSession();
 
-  const collection = await prisma.collection.findMany({
-    where: { user_email: user.email },
-  });
+  // const collection = await prisma.collection.findMany({
+  //   where: { user_email: user.email },
+  // });
 
   return (
     <section className="w-full px-10">
       <Header title={"Collection"} />
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        {collection.map((item, index) => {
+        {/* {collection.map((item, index) => {
           return (
             <Link
               key={index}
@@ -34,7 +34,7 @@ const Collection = async () => {
               </div>
             </Link>
           );
-        })}
+        })} */}
       </div>
     </section>
   );

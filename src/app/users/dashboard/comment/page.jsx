@@ -1,19 +1,19 @@
 import Header from "@/components/Dashboard/Header";
-import prisma from "@/libs/prisma";
+// import prisma from "@/libs/prisma";
 import { authUserSession } from "@/libs/user.libs";
 import Link from "next/link";
 
 const Comment = async () => {
   const user = await authUserSession();
-  const comments = await prisma.comment.findMany({
-    where: { user_email: user.email },
-  });
+  // const comments = await prisma.comment.findMany({
+  //   where: { user_email: user.email },
+  // });
 
   return (
     <div className="w-full px-10">
       <Header title={"Comment"} />
       <div className="grid grid-cols-1 gap-4">
-        {comments.map((item, index) => {
+        {/* {comments.map((item, index) => {
           return (
             <Link
               href={`/anime/${item.mal_id}`}
@@ -24,7 +24,7 @@ const Comment = async () => {
               <p>{item.comment}</p>
             </Link>
           );
-        })}
+        })} */}
       </div>
     </div>
   );

@@ -10,7 +10,7 @@ import { authUserSession } from "@/libs/user.libs";
 const Page = async ({ params }) => {
   const { id } = params;
   const anime = await GetAnime(`anime/${id}`);
-  const user = await authUserSession();
+  // const user = await authUserSession();
 
   return (
     <>
@@ -29,7 +29,7 @@ const Page = async ({ params }) => {
           <BodyCard
             anime={anime}
             mal_id={id}
-            user_email={user?.email}
+            // user_email={user?.email}
             image={anime.data.images.webp.image_url}
             title={anime.data.title}
           />
